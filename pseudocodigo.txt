@@ -21,20 +21,6 @@
 - Como usuarie de QuéMePongo, quiero evitar que haya prendas cuya categoría no se condiga con su tipo. (Ej, una remera no puede ser calzado).
 
 
-class PrendaSinMaterialException(var msg: String):RuntimeException(msg)
-class PrendaSinColorPrincipalException(var msg: String):RuntimeException(msg)
-class NoCoincideElTipoConLaCategoriaException(var msg: String):RuntimeException(msg)
-
-class GeneradorDeAtuendos {
-    listaDePrendas = #{};
-
-    method generarAtuendo()
-    method cargarPrendas()
-}
-
-class Atuendo {
-    var prendas = #{}
-}
 
 */
 
