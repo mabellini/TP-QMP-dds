@@ -1,0 +1,68 @@
+@startuml tp-qmp
+
+class Prenda {
+    - String material
+    - String colorPrincipal 
+    - String colorSecundario
+
+    + method Prenda(material, colorPrincipal)
+	+ method setColorSecundario(unColor)
+}
+
+class PrendaSuperior extends Prenda {
+    - TipoPrendaSuperior tipo
+	
+	+ method PrendaSuperior(material, colorPrincipal, tipo)
+}
+
+class PrendaInferior extends Prenda {
+    - TipoPrendaInferior tipo
+
+	+ method PrendaInferior(material, colorPrincipal, tipo)
+}
+
+class Calzado extends Prenda {
+	+ TipoCalzado tipo
+
+	+ method Calzado(material, colorPrincipal, tipo)
+}
+
+class Accesorio extends Prenda {
+    - TipoAccesorio tipo
+
+	+ method Accesorio(material, colorPrincipal, tipo)
+}
+
+enum TipoPrendaSuperior {
+	REMERA,
+	CAMISA,
+	CHOMBA,
+	BUZO
+}
+
+enum TipoPrendaInferior {
+	PANTALON,
+	SHORT,
+	JOGGING
+}
+
+enum TipoCalzado {
+	ZAPATO,
+	ZAPATILLA,
+	BOTAS,
+	OJOTAS
+}
+
+enum TipoAccesorio {
+	COLLAR,
+	GORRA,
+	GUANTES,
+	BARBIJO
+}
+
+PrendaInferior ---> "1" TipoPrendaInferior
+PrendaSuperior ---> "1" TipoPrendaSuperior
+Calzado ---> "1" TipoCalzado
+Accesorio ---> "1" TipoAccesorio
+
+@enduml
