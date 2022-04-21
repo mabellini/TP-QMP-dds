@@ -1,0 +1,139 @@
+## TP - Que me pongo - 1ra Iteración
+/*
+//1er requerimiento
+
+-- Como usuarie de QuéMePongo, quiero poder cargar prendas válidas para generar atuendos con ellas
+
+//1er requerimiento extendido
+
+- Como usuarie de QuéMePongo, quiero especificar qué tipo de prenda estoy cargando (zapatos, camisa de mangas cortas, pantalón, etc)
+
+- Como usuarie de QuéMePongo, quiero identificar a qué categoría pertenece una prenda (parte superior, calzado, parte inferior, accesorios).
+
+- Como usuarie de QuéMePongo, quiero poder indicar de qué tela o material está hecha una prenda
+ 
+- Como usuarie de QuéMePongo, quiero poder indicar un color principal para mis prendas
+ 
+- Como usuarie de QuéMePongo, quiero poder indicar, si existe, un color secundario para mis prendas.
+ 
+- Como usuarie de QuéMePongo, quiero evitar que haya prendas sin tipo, tela, categoría o color primario`
+ 
+- Como usuarie de QuéMePongo, quiero evitar que haya prendas cuya categoría no se condiga con su tipo. (Ej, una remera no puede ser calzado).
+
+
+class PrendaSinMaterialException(var msg: String):RuntimeException(msg)
+class PrendaSinColorPrincipalException(var msg: String):RuntimeException(msg)
+class NoCoincideElTipoConLaCategoriaException(var msg: String):RuntimeException(msg)
+
+class GeneradorDeAtuendos {
+    listaDePrendas = #{};
+
+    method generarAtuendo()
+    method cargarPrendas()
+}
+
+class Atuendo {
+    var prendas = #{}
+}
+
+*/
+
+
+//Tipos de Prendas
+
+enum TipoPrendaSup {
+	REMERA,
+	CAMISA,
+	CHOMBA,
+	BUZO
+}
+
+enum TipoPrendaInferior {
+	PANTALON,
+	SHORT,
+	JOGGING
+}
+
+enum TipoCalzado {
+	ZAPATO,
+	ZAPATILLA,
+	BOTAS,
+	OJOTAS
+}
+
+enum TipoAccesorio {
+	COLLAR,
+	GORRA,
+	GUANTES,
+	BARBIJO
+}
+
+
+
+
+//Clases
+class Prenda {
+    Categoria categoria;
+    String material;
+    String colorPrincipal; 
+    String colorSecundario;
+
+
+
+
+    // métodos
+    method Prenda(tipo, material, colorPrincipal) {
+
+		this.material = material;
+		this.colorPrincipal = colorPrincipal;
+    } 
+
+	method setColorSecundario(unColor) {
+		this.colorSecundario = unColor
+	}
+}
+
+
+class PrendaSuperior extends Prenda {
+    TipoPrendaSup tipo;
+	method PrendaSuperior(tipo, material, colorPrincipal) {
+		this.tipo = tipo;
+		this.material = material;
+		this.colorPrincipal = colorPrincipal;
+    }
+}
+
+class PrendaInferior extends Prenda {
+    TipoPrendaInferior tipo;
+	method PrendaInferior(tipo, material, colorPrincipal) {
+		this.tipo = tipo;
+		this.material = material;
+		this.colorPrincipal = colorPrincipal;
+    }
+}
+
+class Calzado extends Prenda {
+	TipoCalzado tipo;
+	method Calzado(tipo, material, colorPrincipal) {
+		this.tipo = tipo;
+		this.material = material;
+		this.colorPrincipal = colorPrincipal;
+    }
+    
+}
+
+class Accesorio extends Prenda {
+    TipoAccesorio tipo;
+	method Accesorio(tipo, material, colorPrincipal) {
+		this.tipo = tipo;
+		this.material = material;
+		this.colorPrincipal = colorPrincipal;
+    }
+}
+
+
+
+
+
+
+new Accesorio(GUANTES, 'lana', 'rojo');
