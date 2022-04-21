@@ -4,3 +4,4 @@
 - Martinez Sarmiento, Gonzalo
 - Arrieta, Luciano
 - Salinas, Julian
+- Loyola, Santiago
