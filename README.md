@@ -1,5 +1,4 @@
-# TP-dds
-TP dds
+#QMP - Primera Iteracion 
 
 Bellini, Matias
 Martinez Sarmiento, Gonzalo
