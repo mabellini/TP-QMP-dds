@@ -7,4 +7,4 @@
 - Salinas, Julián
 
 ## Diagrama de Clases
-![imagen-diagrama](/img/tp-qmp.svg)
+![imagen-diagrama](img/tp-qmp.svg)
