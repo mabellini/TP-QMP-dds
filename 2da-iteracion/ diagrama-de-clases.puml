@@ -1,0 +1,96 @@
+@startuml segunda-iteracion
+
+class Prenda {
+  - TipoDePrenda tipoDePrenda
+  - Material material
+  - Color color
+  - Color colorSecundario
+
+  + constructor(TipoDePrenda tipoDePrenda)
+
+  + method setMaterial(Material material, Color color)
+
+  + method setColorSecundario(Color unColor)
+}
+
+class Material {
+    + TramaDeLaPrenda trama
+
+    - constructor (TramaDeLaPrenda trama)
+}
+
+enum TramaDeLaPrenda {
+  LISA, 
+  RAYADA, 
+  CON_LUNARES, 
+  A_CUADROS, 
+  ESTAMPADO
+}
+
+class TipoDePrenda {
+  - Categoria categoria
+
+  + constructor(Categoria categoria) 
+
+  + method categoria()
+}
+
+
+enum Categoria {
+  PARTE_SUPERIOR, 
+  CALZADO, 
+  PARTE_INFERIOR, 
+  ACCESORIOS
+}
+
+class Color {
+  - int rojo
+  - int verde
+  - int azul
+
+  + constructor(int rojo, int verde, int azul)
+}
+
+Prenda --> "1" Material
+Prenda --> "1" Color
+Prenda --> "1" TipoDePrenda
+
+TipoDePrenda --> "1" Categoria
+Material --> "1" TramaDeLaPrenda
+
+class Usuario {
+  - List<Prenda> prendasGuardadas
+  - Prenda borrador
+
+  + method guardarUnaPrenda(Prenda unaPrenda)
+
+  + method guardarEnBorrador(Prenda unaPrenda)
+
+  + method terminarBorrador()
+
+}
+
+
+Usuario --> "*" Prenda
+
+
+class Uniforme {
+  - Prenda parteSuperior
+  - Prenda parteInferior
+  - Prenda calzado
+
+  + constructor (Prenda parteSuperior, Prenda parteInferior, Prenda calzado)
+  + method verificarQueCondice(Prenda unaPrenda, Categoria unaCategoria)
+  + method verificarQueTodasLasPrendasCoincidan(Prenda parteSuperior, Prenda parteInferior, Prenda calzado)
+}
+
+class Institucion {
+  - Uniforme uniforme;
+
+  + method setUniforme(Uniforme uniforme)
+}
+
+Uniforme --> "*" Prenda
+Institucion --> "1" Uniforme
+
+@enduml
