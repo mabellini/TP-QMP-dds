@@ -1,0 +1,10 @@
+# QMP - Tercer Iteracion
+
+- Bellini, Matias
+- Martinez Sarmiento, Gonzalo
+- Arrieta, Luciano
+- Loyola, Santiago
+- Salinas, Julián
+
+## Diagrama de Clases
+![imagen-diagrama](img/iteracion4.png)
