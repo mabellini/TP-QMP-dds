@@ -1,0 +1,57 @@
+@startuml tp-qmp
+'https://plantuml.com/class-diagram
+' - private
+' + public
+
+' Part 1: Organizaciones y Miembros
+
+enum Estado {
+    ACEPTADO
+    RECHAZADO
+    ESPERA
+}
+
+class Usuario {
+    - List<Guardarropa> guardarropas
+    - List<Sugerencia> sugerencias
+
+    + void usarSugerencia(Sugerencia sugerencia)
+    + void borrarSugerencia(Sugerencia sugerencia)
+    + void verSugerencias()
+}
+
+class Prenda {
+}
+
+class Guardarropa {
+    - List<Prenda> = prendas
+
+    + void sumarPrenda(Prenda prenda)
+    + void quitarPrenda(prenda)
+}
+
+abstract class Sugerencia {
+    - Guardarropas guardarropas
+    - Prenda prenda
+    - Estado estado
+
+    + void aplicarSugerencia()
+    + void rechazarSugerencia()
+    + void deshacerSurencia()
+}
+
+class AgregarPrenda extends Sugerencia{
+    + void aplicarSugerencia()
+    + void deshacerSurencia()
+}
+
+class QuitarPrenda extends Sugerencia{
+    + void aplicarSugerencia()
+    + void deshacerSurencia()
+}
+
+
+Usuario --> Sugerencia
+
+
+@enduml
