@@ -51,7 +51,11 @@ class QuitarPrenda extends Sugerencia{
 }
 
 
-Usuario --> Sugerencia
-
+Usuario --> "*" Sugerencia
+Usuario --> "*" Guardarropa
+Guardarropa --> "*" Prenda
+Sugerencia --> Estado
+Sugerencia --> Guardarropa
+Sugerencia --> Prenda
 
 @enduml
