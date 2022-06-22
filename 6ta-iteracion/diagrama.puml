@@ -1,0 +1,66 @@
+@startuml sexta-iteracion
+
+' Documento de patrón observer: https://docs.google.com/document/d/1h8Cce8faTG65RXoElPvAsPS-I8H2MxMbemzMcYCL56I/edit#
+' Enunciado: https://docs.google.com/document/d/1NxqhJj70kt-_4aw-CawlISdJZyedzoOcLAVJAZVZISE/edit#
+
+class Usuario {
+    - observers
+
+    + suscribirseAObserver()
+    + recibirSugerencia()
+    + recibirNotificacion()
+}
+
+Interface NotificacionObserver {
+    + notificar()
+}
+
+class SugerenciaDiaria implements NotificacionObserver {}
+
+class AlertaGranizo implements NotificacionObserver {}
+
+class AlertaLluvia implements NotificacionObserver {}
+
+Usuario --> "*" NotificacionObserver
+
+class RepositorioUsuarios {
+}
+
+class Empleado {
+    + dispararSugerencia()
+    + dispararAlerta()
+}
+
+Empleado --> RepositorioUsuarios
+
+Empleado --> RepositorioAlertas
+
+RepositorioUsuarios --> "*" Usuario
+
+class RepositorioAlertas {}
+
+Interface MailObserver {
+    + enviarMail()
+}
+
+class MailAlerta {
+    - tipoAlerta
+}
+
+enum TipoAlerta {
+    TORMENTA, 
+    GRANIZO,
+    ...
+}
+
+MailAlerta --> "1" TipoAlerta
+
+MailObserver --> "*" MailAlerta
+
+Usuario --> "1" MailObserver
+
+class Alerta {}
+
+RepositorioAlertas --> "*" Alerta
+
+@enduml
