@@ -4,7 +4,9 @@
 ' Enunciado: https://docs.google.com/document/d/1NxqhJj70kt-_4aw-CawlISdJZyedzoOcLAVJAZVZISE/edit#
 
 class Usuario {
-    - observers
+    - observersNotificaciones
+    - observersMails
+    - sugerencias
 
     + suscribirseAObserver()
     + recibirSugerencia()
@@ -62,5 +64,9 @@ Usuario --> "1" MailObserver
 class Alerta {}
 
 RepositorioAlertas --> "*" Alerta
+
+class Guardarropas{}
+
+Usuario --> "1" Guardarropas
 
 @enduml
